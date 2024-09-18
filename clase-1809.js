@@ -97,9 +97,7 @@ numbers.forEach(function (element, index) {
 */
 
 // Ejemplos de uso con for (let variable of iterable)
-
 const numbers2 = [1, 2, 3, 4, 5]
-
 
 // Si queremos que los recorra y printee en consola
 for (let number of numbers2){
@@ -114,6 +112,87 @@ for (let number of numbers2){
     
     numbers2[i] = number*2
     i++
-    console.log(numbers2)
+    //console.log(numbers2)
     
 }
+
+
+/* 1.2.- MAP METHOD  
+
+*/
+
+/* 1.2.0.- MAP METHOD 
+
+    - SINTAXIS BASICA
+            myArray.map(callbackFunction)
+            myArray.map(function(element) {body de la callbackFn} )
+            myArray.map(function(element, index) {body de la callbackFn} )
+
+    - ELEMENTOS SINTACTICOS
+            - Callback function -> es la funcion que se ejecuta para cada elemento del array original
+            - element -> es el elemento que se va procesando en cada iteracion
+            - index -> el indice del current element procesandose en la iteracion determinada
+
+    - QUÉ HACE?
+        - El metodo map CREA Y RETORNA un NUEVO ARRAY
+            - Con la misma length que el original
+            - Lo rellena con los returned values de la funcion callback
+*/
+/* CASOS DE USO MAP METHOD
+
+            1.- Principales
+                - Aplicar una funcion a todos los elementos de un array
+                - Crear un nuevo array basado en el original transformando sus elementos
+
+            2.- Deseables
+                - Formatear los datos de un array
+                - Extraer propiedades especificas de los objetos 
+                - Realizar cálculos en cada elemento
+            
+            3.- Casos más avanzados
+                - Encadenar con otros métodos de array
+                - Usar con funciones ASINCRONAS (con Promise.all)
+                - Implementar patrones funcionales
+
+*/
+
+const numbers3 = [1, 2, 3, 4, 5, 6]
+// Queremos generar un nuevo array compuesto por los dobles de cada elemento del array numbers3
+const doubled = numbers3.map(function (element, index) {
+        return element*2
+})
+//console.log(`Este es el array original: ${numbers3}`)
+//console.log(`Este es el array modificado con .map: ${doubled}`)
+
+/* Tenemos un Array que contiene un Objeto
+    
+    - Queremos que una funcion .map acceda a ese Objeto dentro del Array 
+    - Coja una parte de ese Objeto
+    - Declare un nuevo Objeto
+    - Meta esa parte del Objeto inicial que nos interesa y retorne ese nuevo Array con ese nuevo Objeto con una parte del Ojeto original dentro
+*/
+
+
+const studentsArrayOriginal = [ // Declaramos el array original
+    {name: 'Pepe', grade: 8, age: 24},
+    {name: 'Jose', grade: 4, age: 26},
+    {name: 'Juan', grade: 6, age: 31},
+]
+
+// Queremos crear un nuevo array con un objeto dentro que solo contenga nombre y age
+
+// Aqui declaramos un nuevo array que contendra lo que hagamos con el metodo map 
+// Este map invoca una funcion que toma dos parametros -> element que es el elemento que recorre en cada iteracion, index el index del element
+
+const studentsArrayObjectMapped = studentsArrayOriginal.map(function(element, index){
+
+    let newElement = {}   // Creamos el nuevo objeto dentro del nuevo array
+
+    newElement.name = element.name // Añadimos la propiedad name al unevo objeto y definimos su valor como la del elemento que recorre
+    newElement.age = element.age 
+    
+    return newElement // Retornamos el objeto fuera para que se pueda acceder en scope global
+})
+
+console.log(studentsArrayOriginal)
+console.log(studentsArrayObjectMapped)
