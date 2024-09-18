@@ -161,6 +161,7 @@ const numbers3 = [1, 2, 3, 4, 5, 6]
 const doubled = numbers3.map(function (element, index) {
         return element*2
 })
+
 //console.log(`Este es el array original: ${numbers3}`)
 //console.log(`Este es el array modificado con .map: ${doubled}`)
 
@@ -400,8 +401,6 @@ const wordsMoreThree = words.filter(moreThreeLetras)
 //console.log(wordsMoreThree)
 
 
-
-
 // EJEMPLOS DE LOS EFECTOS DE QUE LA SHALLOW COPY FILTRADA ESTE REFERENCIADA AL ARR ORIGINAL
 
 const arrOriginal = [1, 4, ['hola', 'adios'], {name: 'Adam'}, 'fin']
@@ -420,4 +419,22 @@ arrOriginal[3].name = 'BROKENBLADE MEJOR'                                  // Ca
 arrOriginal[4] =  'principio'
 
 //console.log(arrOriginal)
-console.log(arrCopy)
+//console.log(arrCopy)
+
+
+var people = [
+    {name : "Luis", age : 20, email : "luis@gmail.com"},
+    {name : "Luigi", age : 14, email : "luigi@gmail.com"},
+    {name : "Mario", age : 25, email : "mario@gmail.com"},
+]
+
+function FILTRADOPAKILIANPESAO (element, edad){
+    
+    let newArray=[]
+    if (element.age > edad){
+        return newArray.push(element.email) 
+    }
+}
+
+var PEOPLEFILTRADAPAKILIANPESAO = people.filter(FILTRADOPAKILIANPESAO)
+console.log(PEOPLEFILTRADAPAKILIANPESAO)
