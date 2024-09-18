@@ -184,6 +184,8 @@ const studentsArrayOriginal = [ // Declaramos el array original
 // Aqui declaramos un nuevo array que contendra lo que hagamos con el metodo map 
 // Este map invoca una funcion que toma dos parametros -> element que es el elemento que recorre en cada iteracion, index el index del element
 
+
+// USANDO EL MAP CON FUNCIONES ANONIMAS 
 const studentsArrayObjectMapped = studentsArrayOriginal.map(function(element, index){
 
     let newElement = {}   // Creamos el nuevo objeto dentro del nuevo array
@@ -194,5 +196,26 @@ const studentsArrayObjectMapped = studentsArrayOriginal.map(function(element, in
     return newElement // Retornamos el objeto fuera para que se pueda acceder en scope global
 })
 
-console.log(studentsArrayOriginal)
-console.log(studentsArrayObjectMapped)
+//console.log(studentsArrayOriginal)
+//console.log(studentsArrayObjectMapped)
+
+
+const arr1 = [ 
+    {name: 'Pepe', grade: 8, age: 24},
+    {name: 'Jose', grade: 4, age: 26},
+    {name: 'Juan', grade: 6, age: 31},
+]
+
+function formatObject(element){
+
+    let newElement = {}
+    
+    newElement.name = element.name
+    newElement.age = element.age
+
+    return newElement
+}
+
+const arr2 = arr1.map(formatObject)
+
+//console.log(arr2)
