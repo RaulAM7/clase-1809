@@ -287,4 +287,77 @@ function reformatObjectArrB (element) {
 
 const newStramers = streamers.map(reformatObjectArrB)
 
-console.log(newStramers)
+
+/* FILTER METHOD
+
+    - SINTAXIS BASICA
+
+        myArray.filter(callbackFN)
+        myArray.filter(function(element) {sentencias que evaluen cada elemento   return} )
+        myArray.filter(function(element, index) {sentencias que evaluen cada elemento   return} )
+
+
+    - ELEMENTOS SINTACTICOS
+
+
+    - QUÉ HACE? -> Recorre todo un array original y devuelve otro con los elementos del array original que cumplen unas reglas
+        1.- Recorre el array original
+        2.- Va evaluando unas reglas para cada elemento del array original
+            2.A.- Si el elemento-n lo cumple -> lo agrega al array copia que retorna
+            2.B.- Si el elemento-n NO lo cumple -> NO lo agrega al array copia que retorna
+
+    - CASOS DE USO
+*/
+
+// Primeros ejemplos de uso del metodo filter
+const numeros = [1, 2, 3, 4, 5]
+function esPar (element, index){
+
+    return element % 2 ===0
+}
+const pares = numeros.filter(esPar)
+
+const personas = [
+    { nombre: 'Ana', edad: 30 },
+    { nombre: 'Pedro', edad: 55 },
+    { nombre: 'María', edad: 35 }
+]
+
+function mayores (element) {
+
+    let newObject = {}
+
+    if (element.edad > 30) {
+        
+        newObject.nombre = element.nombre
+        newObject.edad = element.edad
+        
+        return newObject
+    }  
+
+}
+
+const mayoresArr = personas.filter(mayores)
+
+console.log(mayoresArr)
+
+function mayoresCremita (element) {
+
+    let newObject = {}
+
+    let arrKeys = Object.keys(personas)
+
+    for (let i = 0; i < arrKeys.length ; i++){
+
+        if (element.edad > 30) {
+
+            newObject[arrKeys] = element[arrKeys]
+
+            return newObject
+        }
+    }
+}
+
+const mayoresArrB = personas.filter(mayoresCremita)
+
+console.log(mayoresArrB)
