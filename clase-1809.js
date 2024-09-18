@@ -219,3 +219,72 @@ function formatObject(element){
 const arr2 = arr1.map(formatObject)
 
 //console.log(arr2)
+
+
+const numbs = [1, 2, 3, 4]
+
+function sum (element, index) {
+
+    return element*2
+}
+
+const numbsDoubled = numbs.map(sum)
+
+//console.log(numbsDoubled)
+
+
+// Imagina que tenemos unos datos iniciales tal que así:
+
+const pricesInDollars = [10, 20,30,40,50]
+
+const conversionRateEURUSD = 0.85
+
+// Queremos generar un array con los precios en euros
+
+function conversionEURUSDArr (element, index) {
+
+    return element*conversionRateEURUSD
+}
+
+const pricesInEuros = pricesInDollars.map(conversionEURUSDArr)
+
+//console.log(pricesInDollars)
+//console.log(pricesInEuros)
+
+
+
+// Otro ejemplo, con estos datos primarios:
+
+const streamers = [
+    { name: 'Rubius', followers: 1000000, peekView: 550000 },
+    { name: 'elxokas', followers: 500000, peekView: 120000 },
+    { name: 'auronplay', followers: 2000000, peekView: 770000 },
+];
+
+// Queremos una funcion para reformatear {followers, peekView, name}
+
+function reformatObjectArr (element){
+
+    let newObject = {}
+
+    newObject.followers = element.followers
+    newObject.peekView = element.peekView
+    newObject.name = element.name
+
+    return newObject
+}
+
+function reformatObjectArrB (element) {
+
+    let newObject = {}
+
+    newObject.name = element.name
+    newObject.data = {followers: element.followers, peekView: element.peekView}
+
+    return newObject
+}
+
+
+const newStramers = streamers.map(reformatObjectArrB)
+
+console.log(newStramers)
