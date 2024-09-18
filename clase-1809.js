@@ -63,14 +63,14 @@ const numbers = [1, 2, 3, 4, 5]
 // Queremos recorrerlo y printear cada elemento en consola
 numbers.forEach(function (element, index) {
 
-    console.log('Index: ' + index + ' Elemento: ' + element)
+    //console.log('Index: ' + index + ' Elemento: ' + element)
 })
 
 // Queremos recorrerlo y modificar el array original cambiando cada elemento por su doble
 numbers.forEach(function (element, index) {
 
     numbers[index] = element * 2
-    console.log(element)
+    //console.log(element)
 })
 //console.log(numbers)
 
@@ -78,16 +78,42 @@ numbers.forEach(function (element, index) {
 
     - SINTAXIS BASICA
 
-        for (variable of iterable) { sentencias que indican lo que queremos hacer }
+        for (let variable of iterable) { sentencias que indican lo que queremos hacer }
 
     
     - ELEMENTOS SINTACTICOS
 
+        variable -> recibe el valor de lo que se haga en cada iteracion
+        iterable -> un objeto iterable como un Array o String
+        statement -> sentencias que indiquen lo que se va a hacer en cada iteracion 
 
     - QUÉ HACE?
-
+        Muy parecido al forEach()
 
     - CASOS DE USO
+        Muy parecido al forEach()
 
 
 */
+
+// Ejemplos de uso con for (let variable of iterable)
+
+const numbers2 = [1, 2, 3, 4, 5]
+
+
+// Si queremos que los recorra y printee en consola
+for (let number of numbers2){
+
+    //console.log(number)
+}
+
+// Si queremos que los recorra y vaya cambiando por su doble
+
+let i = 0
+for (let number of numbers2){
+    
+    numbers2[i] = number*2
+    i++
+    console.log(numbers2)
+    
+}
