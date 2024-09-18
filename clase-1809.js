@@ -306,6 +306,18 @@ const newStramers = streamers.map(reformatObjectArrB)
             2.A.- Si el elemento-n lo cumple -> lo agrega al array copia que retorna
             2.B.- Si el elemento-n NO lo cumple -> NO lo agrega al array copia que retorna
 
+
+
+    - OJO OJO OJO CON SU RETORNO QUE ESTÁ REFERENCIADO AL ORIGINAL
+        - REALMENTE NO DEVUELVE UNA COPIA CON LA PORCION DEL ARRAY ORIGINAL SINO UNA SHALLOW COPY
+        - ESO SIGNIFICA QUE HACE LA COPIA DESDE LA RAIZ DEL ARRYA ORIGINAL
+        - POR LO QUE SI HACES CAMBIOS EN EL ORIGINAL AFECTARAN TAMBIEN A LOS ELEMENTOS COMUNES DE LA SHALLOW COPY FILTRADA AL ESTAR REFERENCIADA
+            ----> PERO OJO, SOLO CAMBIARAN LOS SUBOBJETOS QUE TENGAS DENTRO, 
+                    LOS ELEMENTOS PRIMARIOS EN EL PRIMER NIVEL DEL ARRAY ORIGINAL NO SE CAMBIARAN
+    
+        - ----> COMO HACER UNA COPIA FILTRADA QUE NO ESTE REFERENCIADA AL ARR ORIGINAL? UN MIX DE .FILTER Y .SLICE PARA HACER COPIAS NO REFERENCIADAS
+
+
     - CASOS DE USO
 */
 
@@ -339,7 +351,7 @@ function mayores (element) {
 
 const mayoresArr = personas.filter(mayores)
 
-console.log(mayoresArr)
+//console.log(mayoresArr)
 
 function mayoresCremita (element) {
 
@@ -360,4 +372,52 @@ function mayoresCremita (element) {
 
 const mayoresArrB = personas.filter(mayoresCremita)
 
-console.log(mayoresArrB)
+//console.log(mayoresArrB)
+
+const arr3 = [1, 2, 3, 4, 5, 6, 7, 8]
+
+function moreThanFive (element, index) {
+    if (element >= 5){
+        return element
+    }
+}
+const moreFiveArr3 = arr3.filter(moreThanFive)
+//console.log(moreFiveArr3)
+
+
+const words = ['a', 'hello', 'Reboot', 'students', 'bay']
+
+//quiero las palabras con más de tres letras
+
+function moreThreeLetras (element) {
+
+    if (element.length > 3){
+
+        return element
+    }
+}
+const wordsMoreThree = words.filter(moreThreeLetras)
+//console.log(wordsMoreThree)
+
+
+
+
+// EJEMPLOS DE LOS EFECTOS DE QUE LA SHALLOW COPY FILTRADA ESTE REFERENCIADA AL ARR ORIGINAL
+
+const arrOriginal = [1, 4, ['hola', 'adios'], {name: 'Adam'}, 'fin']
+
+// Hacemos una simple shallow copy de todo 
+
+const arrCopy = arrOriginal.filter(function(element){
+    return true
+})
+
+arrOriginal[0] = 798
+arrOriginal[1] = 231132
+arrOriginal[2][0] = 'PRUEBA REFERENCIA SHALLOW COPY FILTRADA POR .FILTER'  // Cambiar esto en original si cambia  en la copia filtrada
+arrOriginal[2][1] = 'SI QUE FUNCIONA'
+arrOriginal[3].name = 'BROKENBLADE MEJOR'                                  // Cambiar esto en original si cambia  en la copia filtrada
+arrOriginal[4] =  'principio'
+
+//console.log(arrOriginal)
+console.log(arrCopy)
