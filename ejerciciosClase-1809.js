@@ -197,3 +197,43 @@ function doblar (element, index) {
 
     return element*2
 }
+
+const solucion1 = numbEjercicio.map(function (element, index) {
+
+    return element*2
+})
+
+
+const solucion2 = numbEjercicio.map(doblar)
+//console.log(solucion1)
+
+
+/*
+Tienes el array de objetos [{ nombre: "Juan", edad: 20 }, { nombre: "Ana", edad: 25 }]. 
+Usa map() para crear un array que contenga solo los nombres.
+*/
+
+const nombresEjercicio = [
+    { nombre: "Juan", edad: 20 }, 
+    { nombre: "Ana", edad: 25 }
+]
+
+function reformateoEjercicio (element, index) {
+
+    let newObject = {}
+
+    newObject.nombre = element.nombre
+
+    return newObject
+}
+
+const solucionEjercicionombres = nombresEjercicio.map(reformateoEjercicio)
+//console.log(solucionEjercicionombres)
+
+function reformateoEjercicioOtroApproach (element, index) {
+
+    return element.nombre
+}
+
+const solucionEjercicioNombresOtroApproach = nombresEjercicio.map(reformateoEjercicioOtroApproach)
+//console.log(solucionEjercicioNombresOtroApproach)
