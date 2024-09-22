@@ -51,11 +51,28 @@ Casos de uso
     - oldARR.map(callbackFN)
     - oldARR.map(function(element, index) {} )
     - const newARR =  oldARR.map(function(element, index) {} )
-
+    
     Sintaxis clean
-
+    
     - const oldARR = []
     - function [nombre lo que quieres que le haga al ]
     - const newARR = oldARR.map(function (element, index) {} )
+
+*/
+
+/* FILTER METHOD
+
+- Sintaxis básica:
+
+- oldARR.filter(callbackFN)
+- oldARR.filter(function(element, index) {} )
+- const newARR =  oldARR.filter(function(element, index) {} )
+
+
+Sintaxis clean
+
+- const oldARR = []
+- function [lo que quieres filtrar] (element, index) {}
+- const newARR = oldARR.filter(function (element, index) {} )
 
 */

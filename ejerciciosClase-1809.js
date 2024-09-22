@@ -237,3 +237,128 @@ function reformateoEjercicioOtroApproach (element, index) {
 
 const solucionEjercicioNombresOtroApproach = nombresEjercicio.map(reformateoEjercicioOtroApproach)
 //console.log(solucionEjercicioNombresOtroApproach)
+
+
+// Ejemplos usando el filter
+
+const ages = [12, 18, 22, 15, 30, 17, 25];
+
+function filtrar0 (element, index) {
+
+    if (element >= 18){
+        return element
+    }
+}
+
+const agesFiltradas = ages.filter(filtrar0)
+
+const agesFiltradas1 = ages.filter(function (element, index) {
+
+    if (element >= 18) {
+        return element
+    }
+})
+
+
+const numbersASD = [1, 2, 3, 4, 5, 6, 7, 8]
+
+function lessFive (element, index) {
+
+    if (element < 5){
+        return element
+    }
+}
+const numbersASDlessFive = numbersASD.filter(lessFive)
+//console.log(numbersASDlessFive)
+
+const numbersASDlessFiveB = numbersASD.filter(function(element, index){
+    
+    if (element < 5) {
+        return element
+    }
+})
+//console.log(numbersASDlessFiveB)
+
+const words = ['a', 'hello', 'Reboot', 'students', 'bay']
+
+function moreThreeLetras (element, index){
+
+    if (element.length > 3){
+        return element
+    }
+}
+
+const wordsMoreThree = words.filter(moreThreeLetras)
+console.log(wordsMoreThree) 
+
+const wordsMoreThreeB = words.filter(function(element,index){
+    
+    if (element.length > 3){
+        return element
+    }
+})
+
+console.log(wordsMoreThreeB)
+
+//Dado el array de números [3, 5, 8, 12, 15], usa filter() para crear un nuevo array que solo contenga los números mayores que 10.
+
+const oldARR1 = [3, 5, 8, 12, 15]
+
+function mayorDiez (element, index) {
+
+    if (element > 10){
+        return element
+    }
+}
+const solucionARR1 = oldARR1.filter(mayorDiez)
+console.log(solucionARR1)
+
+/* Tienes un array de cadenas ["perro", "gato", "elefante", "ratón"]. 
+Usa filter() para crear un nuevo array que solo contenga las palabras con más de 4 letras.
+*/
+
+const oldARR2 = ["perro", "gato", "elefante", "ratón"]
+
+function masCuatroLetras (element, index) {
+
+    if (element.length > 4 ){
+        return element
+    }
+}
+const solucionOldARR2 = oldARR2.filter(masCuatroLetras)
+console.log(solucionOldARR2)
+
+// 4. Filtrar productos en stock y con precio menor a 50
+
+const productos = [
+    { nombre: "Camisa", precio: 30, enStock: true },
+    { nombre: "Pantalón", precio: 60, enStock: true },
+    { nombre: "Zapatos", precio: 45, enStock: false },
+    { nombre: "Sombrero", precio: 70, enStock: true }
+];
+
+const enStockYCincuenta = productos.filter(function (element, index) {
+
+    let newObject = {}
+    
+    let arrKeys = Object.keys(productos)
+
+    for (let i = 0 ; i < arrKeys.length ; i++)
+
+        if (element.enStock === true){
+
+            if (element.precio > 50 ) {
+
+                newObject[arrKeys] = element[arrKeys]
+                
+                return newObject
+            }
+        }
+} )
+
+console.log(enStockYCincuenta)
+
+
+
+// 5. Filtrar elementos únicos de un array
+
