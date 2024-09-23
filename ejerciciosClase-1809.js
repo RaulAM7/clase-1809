@@ -402,3 +402,54 @@ const ejerc89ARRSorted = ejerc89ARR.sort(function(a,b) {
 })
 
 console.log(ejerc89ARRSorted)
+
+
+
+const arrPruebas = [2,10,4,22,56,1000,3,45,6]
+
+// Primero ordenandolo a la mano con un algoritmo burbuja
+
+for (let i = 0 ; i < arrPruebas.length ; i++ ) {
+
+    for (let j = i +1 ; j < arrPruebas.length ; j++) {
+
+        if (arrPruebas[i] < arrPruebas[j]) {
+
+            let temp = arrPruebas[i]
+            arrPruebas[i] = arrPruebas[j]
+            arrPruebas[j] = temp
+        }
+    }
+}
+
+
+// Ahora vamos a hacerlo con el metodo sort
+
+const arr80 = [2,10,4,22,56,1000,3,45,6]
+
+const solarr80 = arr80.sort(function (a,b){
+    return a-b
+})
+
+console.log(solarr80)
+
+arr80.map(function (element, index){
+    return element*2
+})
+
+console.log(solarr80)
+
+
+// EJEMPLOS USANDO REDUCE
+
+
+// Queremos el sumatorio
+const arrOLD = [12, 18, 22, 15, 30, 17, 25]
+
+const sumatorio = arrOLD.reduce(function (accum, element, index) {
+
+    return accum + element
+
+},[])
+
+console.log(sumatorio)
