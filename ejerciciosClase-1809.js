@@ -289,7 +289,7 @@ function moreThreeLetras (element, index){
 }
 
 const wordsMoreThree = words.filter(moreThreeLetras)
-console.log(wordsMoreThree) 
+//console.log(wordsMoreThree) 
 
 const wordsMoreThreeB = words.filter(function(element,index){
     
@@ -298,7 +298,7 @@ const wordsMoreThreeB = words.filter(function(element,index){
     }
 })
 
-console.log(wordsMoreThreeB)
+//console.log(wordsMoreThreeB)
 
 //Dado el array de números [3, 5, 8, 12, 15], usa filter() para crear un nuevo array que solo contenga los números mayores que 10.
 
@@ -311,7 +311,7 @@ function mayorDiez (element, index) {
     }
 }
 const solucionARR1 = oldARR1.filter(mayorDiez)
-console.log(solucionARR1)
+//console.log(solucionARR1)
 
 /* Tienes un array de cadenas ["perro", "gato", "elefante", "ratón"]. 
 Usa filter() para crear un nuevo array que solo contenga las palabras con más de 4 letras.
@@ -326,7 +326,7 @@ function masCuatroLetras (element, index) {
     }
 }
 const solucionOldARR2 = oldARR2.filter(masCuatroLetras)
-console.log(solucionOldARR2)
+//console.log(solucionOldARR2)
 
 
 // EJEMPLOS DE metodo find
@@ -340,7 +340,7 @@ function encuentraPrimerPar (element, index){
     }
 }
 const solnumber153 = numbers153.find(encuentraPrimerPar)
-console.log(solnumber153)
+//console.log(solnumber153)
 
 
 // Dado el array [3, 1, 4, 1, 5, 9], usa sort() para ordenarlo de menor a mayor.
@@ -349,7 +349,7 @@ const arrEjer = [3, 1, 4, 1, 5, 9]
 
 const arrSolEjer = arrEjer.sort(function(a,b) { return b - a } )
 
-console.log(arrSolEjer)
+//console.log(arrSolEjer)
 
 // Ordenar alfabeticamente ["perro", "gato", "elefante", "ratón"].
 
@@ -371,7 +371,7 @@ const solucionEjer9898 = arrEjer9874.sort(function (a,b) {
 
 })
 
-console.log(solucionEjer9898)
+//console.log(solucionEjer9898)
 
 
 /*
@@ -401,7 +401,7 @@ const ejerc89ARRSorted = ejerc89ARR.sort(function(a,b) {
 
 })
 
-console.log(ejerc89ARRSorted)
+//console.log(ejerc89ARRSorted)
 
 
 
@@ -437,7 +437,7 @@ arr80.map(function (element, index){
     return element*2
 })
 
-console.log(solarr80)
+//console.log(solarr80)
 
 
 // EJEMPLOS USANDO REDUCE
@@ -448,8 +448,210 @@ const arrOLD = [12, 18, 22, 15, 30, 17, 25]
 
 const sumatorio = arrOLD.reduce(function (accum, element, index) {
 
-    return accum + element
+    return [accum[0] + element]
 
+},[0])
+
+//console.log(sumatorio)
+
+
+
+// Return the sum of the even numbers inside the array
+const arr897987 = [1, 2, 100, 4, 50, 5]
+
+const sumatorioPares = arr897987.reduce(function(accum, element, index) {
+
+    if (element % 2 === 0){
+        return accum + element
+    } else {
+        return accum
+    }
+
+},0)
+
+//console.log(sumatorioPares)
+
+const sumatorioImpares = arr897987.reduce(function(accum, element, index){
+
+    if (element % 2 !== 0){
+        return accum + element  
+    } else {
+        return accum
+    }
+
+},0)
+
+//console.log(sumatorioImpares)
+
+// Queremos un Array con los impares
+
+const arrayImpares = arr897987.reduce(function(accum, element, index){
+
+    if (element % 2 !== 0){
+        accum.push(element)
+        
+    }
+    return accum
+
+}, [])
+
+console.log(arrayImpares)
+
+const cart = [
+    { product: 'water', price: 1.49 },
+    { product: 'tomato', price: 2.15 },
+    { product: 'milk', price: 6.39 },
+    { product: 'bread', price: 0.99 },
+]
+  
+// Return a new array with elements cheaper than 2.5
+
+const cartBarato = cart.reduce(function(accum, element, index){
+
+    if (element.price < 2.5){
+        accum.push(element)
+    }
+    return accum
+    
 },[])
 
-console.log(sumatorio)
+//console.log(cartBarato)
+
+const numbers35213 = [1, 2, 3, 4];
+
+const suma = numbers35213.reduce(function(accumulator, current, index){
+
+    return accumulator + current
+}, 0)
+
+//console.log(suma)
+
+const cart1 = [
+    { product: 'water', price: 1.49 },
+    { product: 'tomato', price: 2.15 },
+    { product: 'milk', price: 6.39 },
+    { product: 'bread', price: 0.99 },
+]
+
+// Return a new array with elements cheapers than 2.5
+
+function priceFiltrer (cart, priceBaremo) {
+
+    const cartFiltred = cart.reduce(function(accumulator, currentValue, index){
+
+        if (currentValue.price < priceBaremo) {
+            accumulator.push(currentValue)
+
+        }
+        return accumulator
+    },[])
+
+    return cartFiltred
+}
+
+// Esta funcion al ser llamada toma un cart y un baremo y se encarga de filtrar por precios y retorna un array con los objetos que cumplen
+//console.log(priceFiltrer(cart1, 2.5))
+//console.log(cart1)
+
+/* Por ejemplo, podriamos crear una funcion que tomara como parametros y cart y un precio
+
+Y devolviera un nuevo array con un objeto reformateado 
+
+*/
+
+/* function priceFiltrerReformated (cart, priceBaremo) {
+
+    const cartFiltred = cart.reduce(function(accumulator, currentValue, index){
+
+        if (currentValue.price < priceBaremo){
+            accumulator.push(currentValue)
+        }
+        return accumulator
+    }, []).map(function(element, index){
+
+        let newObject = {}
+        newObject.nameProduct = element.product
+        newObject.data = {price: element.price}
+
+        return newObject
+    })
+    return newObject
+}
+
+console.log(priceFiltrerReformated(cart1, 2.5))
+*/
+
+
+// Vamos a filtrar pares, luego duplicar cada uno y quiero que al final retorne el valor del sumatorio de todo
+const numerosOtraVez = [1, 2, 3, 4, 5]
+
+const result = numerosOtraVez
+    .filter(function(currentValue, index) {
+
+    if (currentValue % 2 ===0) {
+        return currentValue
+    }
+
+}).map(function(currentValue, index){
+
+    return currentValue*2
+
+}).reduce(function(accumulator, currentValue, index){
+    return accumulator + currentValue
+},0)
+
+// console.log(result) // Bien
+
+// Problema: Tienes un array de personas con nombres y edades, y quieres obtener un array de los nombres de las personas mayores de 18 años.
+
+var personas789 = [
+    { nombre: "Juan", edad: 17 },
+    { nombre: "Ana", edad: 22 },
+    { nombre: "Pedro", edad: 30 },
+    { nombre: "María", edad: 15 }
+];
+
+const solution = personas789
+
+.filter(function(currentValue, index){
+
+    if (currentValue.edad > 18){
+
+        return currentValue
+    }
+
+}).map(function(currentValue, index){
+
+    return currentValue.nombre
+})
+
+// console.log(solution) // Bien
+
+/*Problema: Tienes un array anidado de arrays de números. 
+Quieres sumar todos los números que sean pares.
+*/
+
+const arraysDeNumeros = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+const solucion3 = arraysDeNumeros
+
+    .reduce(function(flat, current){
+        return flat.concat(current)
+    }, [])
+
+    .filter(function(currentValue, index){
+        if (currentValue % 2 === 0){
+            return currentValue
+        }
+    })
+
+    .reduce(function(accumulator, currentValue, index){
+        return accumulator + currentValue
+    },0)
+
+
+console.log(solucion3)
