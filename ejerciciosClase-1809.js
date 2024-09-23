@@ -627,7 +627,7 @@ const solution = personas789
 
 // console.log(solution) // Bien
 
-/*Problema: Tienes un array anidado de arrays de números. 
+/*Problema: Tienes un array anidado de arrays de números. CHAINING METHODS IN MULTIDIMENSIONAL ARRAYS 
 Quieres sumar todos los números que sean pares.
 */
 
@@ -654,4 +654,36 @@ const solucion3 = arraysDeNumeros
     },0)
 
 
-console.log(solucion3)
+// console.log(solucion3)
+
+
+
+const transactions = [
+    { amount: 50, type: 'deposit' },
+    { amount: 100, type: 'withdrawal' },
+    { amount: 200, type: 'deposit' },
+    { amount: 150, type: 'withdrawal' }
+];
+
+const transactionsSorted = transactions
+    .sort(function(a,b){
+
+        return a.amount - b.amount
+    })
+
+const transactionsSortedAndAccumulator = transactionsSorted
+
+    .reduce(function (accumulator, currentValue, index){
+
+        if (currentValue.type === 'deposit'){
+
+            accumulator.totalDeposits += currentValue.amount
+        } else {
+
+            accumulator.totalWithdrawals += currentValue.amount
+        }
+        return accumulator
+
+    }, {totalDeposits: 0 , totalWithdrawals: 0} )
+
+console.log(transactionsSortedAndAccumulator)
