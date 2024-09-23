@@ -329,4 +329,76 @@ const solucionOldARR2 = oldARR2.filter(masCuatroLetras)
 console.log(solucionOldARR2)
 
 
+// EJEMPLOS DE metodo find
 
+const numbers153 = [1, 9, 3, 4, 5]
+
+function encuentraPrimerPar (element, index){
+
+    if (element % 2 === 0){
+        return element
+    }
+}
+const solnumber153 = numbers153.find(encuentraPrimerPar)
+console.log(solnumber153)
+
+
+// Dado el array [3, 1, 4, 1, 5, 9], usa sort() para ordenarlo de menor a mayor.
+
+const arrEjer = [3, 1, 4, 1, 5, 9]
+
+const arrSolEjer = arrEjer.sort(function(a,b) { return b - a } )
+
+console.log(arrSolEjer)
+
+// Ordenar alfabeticamente ["perro", "gato", "elefante", "ratón"].
+
+const arrEjer9874 = ["perro", "gato", "elefante", "ratón"]
+
+const solucionEjer9898 = arrEjer9874.sort(function (a,b) { 
+    
+    if (a < b){
+
+        return -1
+
+    } if (a > b){
+
+        return 1
+        
+    } else {
+        return 0
+    }
+
+})
+
+console.log(solucionEjer9898)
+
+
+/*
+Tienes un array de objetos [{ nombre: "Ana", edad: 22 }, { nombre: "Luis", edad: 18 }]. 
+Usa sort() para ordenarlos por la edad en orden ascendente.
+
+*/
+
+const ejerc89ARR = [
+    { nombre: "Ana", edad: 22 }, 
+    { nombre: "Luis", edad: 18 }
+]
+
+const ejerc89ARRSorted = ejerc89ARR.sort(function(a,b) {
+
+    if (a.edad < b.edad){
+
+        return -1
+
+    } if (a.edad > b.edad){
+
+        return 1
+        
+    } else {
+        return 0
+    }
+
+})
+
+console.log(ejerc89ARRSorted)

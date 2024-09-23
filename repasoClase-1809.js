@@ -76,3 +76,57 @@ Sintaxis clean
 - const newARR = oldARR.filter(function (element, index) {} )
 
 */
+
+/* FIND METHOD
+
+Sintacis basica
+
+    - oldARR = []
+    - function buscarX(element, index) {return (lo que quieres que busque)}
+    - newARR = oldARR.find(funcion)
+
+Que hace?
+
+    Devuelve el primer elemento que cumpla con la condicion
+
+*/
+
+/* SORT METHOD
+
+
+
+*/
+
+const arrPruebas = [2,10,4,22,56,1000,3,45,6]
+
+// Primero ordenandolo a la mano con un algoritmo burbuja
+
+for (let i = 0 ; i < arrPruebas.length ; i++ ) {
+
+    for (let j = i +1 ; j < arrPruebas.length ; j++) {
+
+        if (arrPruebas[i] < arrPruebas[j]) {
+
+            let temp = arrPruebas[i]
+            arrPruebas[i] = arrPruebas[j]
+            arrPruebas[j] = temp
+        }
+    }
+}
+
+
+// Ahora vamos a hacerlo con el metodo sort
+
+const arr80 = [2,10,4,22,56,1000,3,45,6]
+
+const solarr80 = arr80.sort(function (a,b){
+    return a-b
+})
+
+console.log(solarr80)
+
+arr80.map(function (element, index){
+    return element*2
+})
+
+console.log(solarr80)
